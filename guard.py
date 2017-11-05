@@ -12,7 +12,12 @@ config=configparser.ConfigParser()
 config.read('config.conf')
 subnet=config['SETTINGS']['subnet']
 
+def createTables(conn):
+    #Create db table if it's not exist
+    conn.execute("CREATE TABLE mac_ip_addresses (ID INTEGER PRIMARY KEY AUTOINCREMENT, macAddress varchar(17) UNIQUE NOT NULL, ipAddress varchar(15) NOT NULL, comment varchar(50) )")
+
 def showDevices():
+    #Shows devices in whitelist
     print "\n========== Your Devices ==========\n    Mac Address       IP Address   "
     query = "SELECT macAddress,ipAddress FROM mac_ip_addresses;"
     result = conn.execute(query)
@@ -26,6 +31,7 @@ if(config['SETTINGS']['firstTime']=='1'):
     config['SETTINGS']['firstTime']='0'
     with open('config.conf','w') as configfile:
         config.write(configfile)
+    createTables(conn)
     for s,r in ans:
         mac=(r.sprintf("%Ether.src%"))
         ip=(r.sprintf("%ARP.psrc%"))
