@@ -9,7 +9,7 @@ import sqlite3
 conn = sqlite3.connect('network.db')
 
 config=configparser.ConfigParser()
-config.read('config.conf')
+config.read('kripton-guard.conf')
 subnet=config['SETTINGS']['subnet']
 
 def createTables(conn):
@@ -29,7 +29,7 @@ ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet),timeout=5)
 
 if(config['SETTINGS']['firstTime']=='1'):
     config['SETTINGS']['firstTime']='0'
-    with open('config.conf','w') as configfile:
+    with open('kripton-guard.conf','w') as configfile:
         config.write(configfile)
     createTables(conn)
     for s,r in ans:
