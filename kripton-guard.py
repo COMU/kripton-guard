@@ -11,6 +11,7 @@ conn = sqlite3.connect('network.db')
 config=configparser.ConfigParser()
 config.read('kripton-guard.conf')
 subnet=config['SETTINGS']['subnet']
+interface=config['SETTINGS']['interface']
 
 def createTables(conn):
     #Create db table if it's not exist
@@ -25,7 +26,7 @@ def showDevices():
         print row[0] + "    " + row[1] + "\n"
     print "==================================="
 
-ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet),timeout=5)
+ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=str(interface))
 
 if(config['SETTINGS']['firstTime']=='1'):
     config['SETTINGS']['firstTime']='0'
