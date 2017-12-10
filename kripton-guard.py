@@ -3,15 +3,44 @@
 #LAN Scanner
 
 from scapy.all import *
+from pyfcm import FCMNotification
 import configparser
 import sqlite3
-
-conn = sqlite3.connect('network.db')
+import pyrebase
 
 config=configparser.ConfigParser()
 config.read('kripton-guard.conf')
 subnet=config['SETTINGS']['subnet']
 interface=config['SETTINGS']['interface']
+mail=config['SETTINGS']['mail']
+password=config['SETTINGS']['password']
+
+apiKey=config['API']['apiKey']
+authDomain=config['API']['authDomain']
+databaseURL=config['API']['databaseURL']
+apiKeyFCM=config['API']['apiKeyFCM']
+
+config_pyrebase = {
+  "apiKey": apiKey,
+  "authDomain": authDomain,
+  "databaseURL": databaseURL,
+  "storageBucket": ""
+}
+
+firebase = pyrebase.initialize_app(config_pyrebase)
+
+mAuth = firebase.auth()
+user = mAuth.sign_in_with_email_and_password(mail, password)
+userID = mAuth.get_account_info(user['idToken'])
+userID = userID["users"][0]["localId"]
+
+db = firebase.database()
+db_user = db.child("users").child(userID).get(user['idToken'])
+deviceID = db_user.val()
+
+push_service = FCMNotification(api_key=apiKeyFCM)
+
+conn = sqlite3.connect('network.db')
 
 def createTables(conn):
     #Create db table if it's not exist
@@ -25,6 +54,12 @@ def showDevices():
     for row in result:
         print row[0] + "    " + row[1] + "\n"
     print "==================================="
+
+def sendNotification():
+    #Send notification via FCM
+    message_title = "Kripton Guard"
+    message_body = "A new device has been detected on your network!"
+    push_service.notify_single_device(registration_id=deviceID, message_title=message_title, message_body=message_body)
 
 ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=str(interface))
 
@@ -57,6 +92,7 @@ else:
                     conn.commit()
                     print "Updated: " + mac + " -- " + ip
         else:
+            sendNotification()
             reply = raw_input("A new device has been detected.\nMac Address: {0} IP Address: {1}\nWould you like to add this device to whitelist? y/n :".format(mac,ip))
             if (reply == 'e'):
                 query = "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
