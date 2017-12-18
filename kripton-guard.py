@@ -9,11 +9,12 @@ import sqlite3
 import pyrebase
 
 config=configparser.ConfigParser()
-config.read('kripton-guard.conf')
+config.read('/etc/kripton-guard/kripton-guard.conf')
 subnet=config['SETTINGS']['subnet']
 interface=config['SETTINGS']['interface']
 mail=config['SETTINGS']['mail']
 password=config['SETTINGS']['password']
+repeatTime=config['SETTINGS']['repeatTime']
 
 apiKey=config['API']['apiKey']
 authDomain=config['API']['authDomain']
@@ -40,7 +41,7 @@ deviceID = db_user.val()
 
 push_service = FCMNotification(api_key=apiKeyFCM)
 
-conn = sqlite3.connect('network.db')
+conn = sqlite3.connect('/etc/kripton-guard/network.db')
 
 def createTables(conn):
     #Create db table if it's not exist
