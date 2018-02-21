@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "278435031997",
+    "firebase_url": "https://kripton-guard.firebaseio.com",
+    "project_id": "kripton-guard",
+    "storage_bucket": "kripton-guard.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278435031997:android:bcdfd0b964666f34",
+        "android_client_info": {
+          "package_name": "com.example.oozdemir.kriptonguard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278435031997-tgv8uk40ai1i37nerekjmluo85vp1h13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oozdemir.kriptonguard",
+            "certificate_hash": "6afb7cbdbf48d7069c75abacc042f62697985a15"
+          }
+        },
+        {
+          "client_id": "278435031997-0ito44cletvv7a0rtgkv2m7kltfkbfaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAADd9YTNZ4jJD-pqumf0f0D2BAaYdxNEE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278435031997-0ito44cletvv7a0rtgkv2m7kltfkbfaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

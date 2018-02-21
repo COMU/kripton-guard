@@ -41,7 +41,7 @@ deviceID = db_user.val()
 
 push_service = FCMNotification(api_key=apiKeyFCM)
 
-conn = sqlite3.connect('/etc/kripton-guard/network.db')
+conn = sqlite3.connect('/opt/kripton-guard/network.db')
 
 def createTables(conn):
     #Create db table if it's not exist
