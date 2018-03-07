@@ -2,3 +2,4 @@ scapy
 pyrebase
 pyfcm
 python-crontab
+configparser

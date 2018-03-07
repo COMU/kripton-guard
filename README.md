@@ -6,7 +6,7 @@ Kripton Guard, saves MAC addresses to a SQLite database by sending ARP packets t
 Kripton Guard uses [Google Firebase Authentication](https://firebase.google.com/docs/auth/) for authentication, associates your  `user id` with `device id` and saves it in [Google Realtime Database](https://firebase.google.com/docs/database/).  It sends you notifications via [Google Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) when new device is found.
 
 ## Prerequisites
-Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [pyfcm](https://github.com/olucurious/PyFCM), [python-crontab](https://github.com/doctormo/python-crontab) libraries and you can easily install them with pip:
+Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [pyfcm](https://github.com/olucurious/PyFCM), [python-crontab](https://github.com/doctormo/python-crontab), [configparser](https://docs.python.org/3/library/configparser.html) libraries and you can easily install them with pip:
 ```
 pip install -r requirements.txt
 ```
