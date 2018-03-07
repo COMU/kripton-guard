@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from scapy.all import *
 from pyfcm import FCMNotification
 import configparser
