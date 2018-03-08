@@ -1,5 +1,4 @@
-scapy
+scapy-python3
 pyrebase
 pyfcm
 python-crontab
-configparser

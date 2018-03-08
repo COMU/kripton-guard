@@ -1,0 +1,106 @@
+from scapy.all import *
+from pyfcm import FCMNotification
+import configparser
+import sqlite3
+import pyrebase
+
+config=configparser.ConfigParser()
+config.read('/etc/kripton-guard/kripton-guard.conf')
+subnet=config['SETTINGS']['subnet']
+interface=config['SETTINGS']['interface']
+mail=config['SETTINGS']['mail']
+password=config['SETTINGS']['password']
+repeatTime=config['SETTINGS']['repeatTime']
+
+apiKey=config['API']['apiKey']
+authDomain=config['API']['authDomain']
+databaseURL=config['API']['databaseURL']
+apiKeyFCM=config['API']['apiKeyFCM']
+
+config_pyrebase = {
+  "apiKey": apiKey,
+  "authDomain": authDomain,
+  "databaseURL": databaseURL,
+  "storageBucket": ""
+}
+
+firebase = pyrebase.initialize_app(config_pyrebase)
+
+mAuth = firebase.auth()
+user = mAuth.sign_in_with_email_and_password(mail, password)
+userID = mAuth.get_account_info(user['idToken'])
+userID = userID["users"][0]["localId"]
+
+db = firebase.database()
+db_user = db.child("users").child(userID).get(user['idToken'])
+deviceID = db_user.val()
+
+push_service = FCMNotification(api_key=apiKeyFCM)
+
+conn = sqlite3.connect('/opt/kripton-guard/network.db')
+
+def createTables(conn):
+    #Create db table if it's not exist
+    conn.execute("CREATE TABLE mac_ip_addresses (ID INTEGER PRIMARY KEY AUTOINCREMENT, macAddress varchar(17) UNIQUE NOT NULL, ipAddress varchar(15) NOT NULL, comment varchar(50) )")
+
+def showDevices():
+    #Shows devices in whitelist
+    print("\n========== Your Whitelist ==========\n    Mac Address       IP Address   ")
+    query = "SELECT macAddress,ipAddress FROM mac_ip_addresses;"
+    result = conn.execute(query)
+    for row in result:
+        print(row[0] + "    " + row[1] + "\n")
+    print ("====================================")
+
+def sendNotification():
+    #Send notification via FCM
+    message_title = "Kripton Guard"
+    message_body = "A new device has been detected on your network!"
+    push_service.notify_single_device(registration_id=deviceID, message_title=message_title, message_body=message_body)
+
+ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=str(interface))
+
+if(config['SETTINGS']['firstTime']=='1'):
+    config['SETTINGS']['firstTime']='0'
+    with open('/etc/kripton-guard/kripton-guard.conf','w') as configfile:
+        config.write(configfile)
+    createTables(conn)
+    for s,r in ans:
+        mac=(r.sprintf("%Ether.src%"))
+        ip=(r.sprintf("%ARP.psrc%"))
+        query= "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
+        conn.execute(query)
+    conn.commit()
+    showDevices()
+else:
+    showDevices()
+    for s,r in ans:
+        mac=(r.sprintf("%Ether.src%"))
+        ip=(r.sprintf("%ARP.psrc%"))
+        query = "SELECT macAddress,ipAddress FROM mac_ip_addresses WHERE macAddress = '{0}';".format(mac)
+        result = conn.execute(query)
+        row = result.fetchone()
+        if(row):
+            if(row[1] != ip):
+                query = "UPDATE mac_ip_addresses SET ipAddress = '{0}' WHERE macAddress = '{1}';".format(ip,mac)
+                conn.execute(query)
+                conn.commit()
+#                reply = raw_input(mac + " this address is already in whitelist with {0} IP address.\nWould you like to update IP adress to {1} y/n :".format(row[1],ip))
+#                if (reply == 'y'):
+#                    query = "UPDATE mac_ip_addresses SET ipAddress = '{0}' WHERE macAddress = '{1}';".format(ip,mac)
+#                    conn.execute(query)
+#                    conn.commit()
+#                    print "Updated: " + mac + " -- " + ip""
+        else:
+            sendNotification()
+            query = "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
+            conn.execute(query)
+            conn.commit()
+#            reply = raw_input("A new device has been detected.\nMac Address: {0} IP Address: {1}\nWould you like to add this device to whitelist? y/n :".format(mac,ip))
+#            if (reply == 'y'):
+#                query = "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
+#                conn.execute(query)
+#                conn.commit()
+
+
+conn.close()
