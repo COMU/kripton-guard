@@ -23,33 +23,53 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.2.aar/270ee0d54fb14f14060606222760ae09/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.8.0.aar/ad216eefaba94a3e69a45557fad3e315/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="1eb02c1033c29e736e558db646bbf0d522fecb53">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/5.jar" />
+        sha1="264ad23f9752aabecfa41115c52a25a023a08839">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/42.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/834f7f58c3c5352ddd23b4b53c840ce0/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/6d7aa5ed05fe2650b0825463ec839d2c/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="febe02d02cc81d6a29a8b68ef042502b638a5835">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/8.jar" />
+        sha1="9068775bb0941e0fc1d4ff9adbf5d73475794955">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/39.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.2.aar/5b3cd2a55b1dfaadcdd91c2cdaa66a25/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-common-11.8.0.aar/85af9745d9e845cbff1cd74d2bb5c0cc/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="a0b869be21f2e39e9b337bec395d9a7e111da21e">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/13.jar" />
+        sha1="e6aeff19a2ce1eb896557be73cb9ceb56f8d1cf3">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.8.0.aar/7572578e1dd36294999defd4f2f215f3/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c44026185adf61f12630db36ac6781481f559e7c">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-database-11.8.0.aar/2b6030df89beb69362062b1688a3822f/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1b982cc8b5ab6f788690238dbe3ac3bb19f88b1a">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/36.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,13 +113,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.2.aar/0e47ed6cce1069fec5d6aaa1c20009f5/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.8.0.aar/00741bdd7103bc608eec4d354665b1da/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="108c3cdbdb89a05d388a170bd3549b1e43ad6d54">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/15.jar" />
+        sha1="122de0d704f76d2bb5cb9db66e00fe90a0a41e78">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/41.jar" />
     </item>
     <item
         is-multidex="false"
@@ -123,13 +143,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.2.aar/0dfb4e2b7bebd3f0316efa536ca7227c/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/7bcd371645fb2cccd764414dc7edf0ab/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="4d7b1a23cecd2855bdfbd8266650d140e9e6977c">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/18.jar" />
+        sha1="233d88c6f961d2a84758dfe27b7af61318190c7b">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/45.jar" />
     </item>
     <item
         is-multidex="false"
@@ -143,13 +163,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-auth-11.6.2.aar/3bf7db115addeb7579bfb35db41c5446/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-auth-11.8.0.aar/6f8cc0fb5121daa19b3fc9291d6732fe/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="19e55bee106350a20251b6aa7bd30fa5e25c36c8">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/7.jar" />
+        sha1="c5bc72ad3250d065128d1d7514279be703e57bd0">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/38.jar" />
     </item>
     <item
         is-multidex="false"
@@ -163,16 +183,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.2.aar/8a41dc4ee7c75d4bf9aea32c49de6b85/jars/classes.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="26.0.2"
-        sha1="225f093d9a041f8206d812d3055a886a816ac365">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/20.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/da3fbeda6b3ecdc64cfc534e9354a08d/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
@@ -180,16 +190,6 @@
         revision="26.0.2"
         sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
         <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.2.aar/e638743ba10d79f65dd8bd4fff062c13/jars/classes.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="26.0.2"
-        sha1="fd6ae8c61bd548b134265ef3c37807d4efcc854c">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/21.jar" />
     </item>
     <item
         is-multidex="false"
@@ -213,13 +213,23 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.2.aar/eb092246cdeb81f3f87818f5bd8fb445/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-11.8.0.aar/3e6fe008c33ad407055d34dbe196d22e/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="b0ae7bfe4591746f6491a4a270ee56712062d1ca">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/16.jar" />
+        sha1="ed04a0ae7198b0d5d0e965d6afdb0fe784dcfbee">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/5bebe3b4acc314b3bfb03883c0f4b731/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5ad3911825107d8dd4b017fdecebfd23c08048dd">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/47.jar" />
     </item>
     <item
         is-multidex="false"
@@ -233,13 +243,23 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-11.6.2.aar/c3e925af8d4b8d836bd613b786d1eadb/jars/classes.jar"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/3abae1781ad8847fe962c987d769190f/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
         optimize="true"
         revision="26.0.2"
-        sha1="b09006b74a6b6ad5d696af2d85db540f7723521e">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/17.jar" />
+        sha1="d2af2ef4d987d753f2e8ee2d1480ab964d5c7273">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/46.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.8.0.aar/84becde7abd25196849535b1692489ff/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="14"
+        optimize="true"
+        revision="26.0.2"
+        sha1="42c9659c973e311ffdb645ed057e5053e0ab5c78">
+        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/40.jar" />
     </item>
     <item
         is-multidex="false"
@@ -273,16 +293,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.2.aar/489a8cfbf91b74be1a360ae052793bb4/jars/classes.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="26.0.2"
-        sha1="20ea90cf871500086e68686dad7a039f2dffad8f">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/6.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/3891075aeaf73ca9f8462a34380b1472/jars/classes.jar"
         jumboMode="false"
         min-sdk-version="14"
@@ -300,16 +310,6 @@
         revision="26.0.2"
         sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
         <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/14.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/oozdemir/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.2.aar/3d7b76612582bdf320857987af6e89aa/jars/classes.jar"
-        jumboMode="false"
-        min-sdk-version="14"
-        optimize="true"
-        revision="26.0.2"
-        sha1="e9dc052d4d36b53c3a1bb2d5bf634fcac5d35037">
-        <dex dex="/home/oozdemir/AndroidStudioProjects/KriptonGuard/app/build/intermediates/transforms/preDex/release/19.jar" />
     </item>
     <item
         is-multidex="false"

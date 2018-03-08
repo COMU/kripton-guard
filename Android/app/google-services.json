@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:278435031997:android:bcdfd0b964666f34",
+        "mobilesdk_app_id": "1:278435031997:android:a6b106a6522c2ce1",
         "android_client_info": {
-          "package_name": "com.example.oozdemir.kriptonguard"
+          "package_name": "com.comu.oozdemir.kriptonguard"
         }
       },
       "oauth_client": [
         {
-          "client_id": "278435031997-tgv8uk40ai1i37nerekjmluo85vp1h13.apps.googleusercontent.com",
+          "client_id": "278435031997-rqi0grkldflfvh2r65pkp0sorldh518h.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.oozdemir.kriptonguard",
-            "certificate_hash": "6afb7cbdbf48d7069c75abacc042f62697985a15"
+            "package_name": "com.comu.oozdemir.kriptonguard",
+            "certificate_hash": "4792a9a40d64bfedd9f26702d23e9796fd851b8a"
           }
         },
         {
