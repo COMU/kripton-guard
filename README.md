@@ -6,28 +6,31 @@ Kripton Guard, saves MAC addresses to a SQLite database by sending ARP packets t
 Kripton Guard uses [Google Firebase Authentication](https://firebase.google.com/docs/auth/) for authentication, associates your  `user id` with `device id` and saves it in [Google Realtime Database](https://firebase.google.com/docs/database/).  It sends you notifications via [Google Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) when new device is found.
 
 ## Prerequisites
-Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [pyfcm](https://github.com/olucurious/PyFCM), [python-crontab](https://github.com/doctormo/python-crontab) libraries and you can easily install them with pip:
+
+Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [pyfcm](https://github.com/olucurious/PyFCM), [python-crontab](https://github.com/doctormo/python-crontab) and these libraries will be installed automatically when installing kripton-guard pip package but you can also install them with the command below:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 ## Installation
+
 ### Android
-You need to install kripton-guard.apk to your Android Phone. After that, fill in the required information on the form and create an account.
+Google Play Link: [Kripton-Guard](https://play.google.com/store/apps/details?id=com.comu.oozdemir.kriptonguard "Kripton-Guard")
+
 ### Python
-Clone the repository:
+
 ```
-git clone https://github.com/COMU/kripton-guard.git
+pip install kripton-guard
 ```
 
-Edit `[SETTINGS]` section in [Python/kripton-guard.conf](https://github.com/COMU/kripton-guard/blob/master/Python/kripton-guard.conf "kripton-guard.conf").
+Edit `[SETTINGS]` section in [/etc/kripton-guard/kripton-guard.conf](https://github.com/COMU/kripton-guard/blob/master/Python/kripton-guard.conf "kripton-guard.conf").
 
 *&nbsp;&nbsp;&nbsp;&nbsp;Note: `repeattime` gets value in minutes*
 
-Run [Python/install.py](https://github.com/COMU/kripton-guard/blob/master/Python/install.py "install.py") with `sudo` privileges:
+Run the program with:
+
 ```
-sudo python3 install.py
+sudo kripton-guard
 ```
-If Kripton Guard is installed correctly, [kripton-guard.conf](https://github.com/COMU/kripton-guard/blob/master/Python/kripton-guard.conf "kripton-guard.conf") file will be moved to `/etc/kripton-guard` and [kripton-guard.py](https://github.com/COMU/kripton-guard/blob/master/Python/kripton-guard.py "kripton-guard.py") file moved to `/opt/kripton-guard`.
 
 After a few minutes, your phone will start to get notification whenever a new device join to your network.
 
