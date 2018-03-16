@@ -2,9 +2,15 @@
 
 from scapy.all import *
 from pyfcm import FCMNotification
+from crontab import CronTab
+import shutil, os, sys, getpass
 import configparser
 import sqlite3
 import pyrebase
+
+if os.getegid() != 0:
+    sys.exit("Please run the script with sudo!")
+current_user = getpass.getuser()
 
 config=configparser.ConfigParser()
 config.read('/etc/kripton-guard/kripton-guard.conf')
@@ -13,6 +19,8 @@ interface=config['SETTINGS']['interface']
 mail=config['SETTINGS']['mail']
 password=config['SETTINGS']['password']
 repeatTime=config['SETTINGS']['repeatTime']
+
+conn = sqlite3.connect('/var/lib/kripton-guard.db')
 
 apiKey=config['API']['apiKey']
 authDomain=config['API']['authDomain']
@@ -39,11 +47,16 @@ deviceID = db_user.val()
 
 push_service = FCMNotification(api_key=apiKeyFCM)
 
-conn = sqlite3.connect('/opt/kripton-guard/network.db')
 
 def createTables(conn):
     #Create db table if it's not exist
     conn.execute("CREATE TABLE mac_ip_addresses (ID INTEGER PRIMARY KEY AUTOINCREMENT, macAddress varchar(17) UNIQUE NOT NULL, ipAddress varchar(15) NOT NULL, comment varchar(50) )")
+
+def createCron():
+    my_cron = CronTab(user=current_user)
+    job = my_cron.new(command='python3 kripton-guard')
+    job.minute.every(repeatTime)
+    my_cron.write()
 
 def showDevices():
     #Shows devices in whitelist
@@ -64,6 +77,9 @@ ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=
 
 if(config['SETTINGS']['first-time']=='1'):
     config['SETTINGS']['first-time']='0'
+
+    createCron()
+
     with open('/etc/kripton-guard/kripton-guard.conf','w') as configfile:
         config.write(configfile)
     createTables(conn)

@@ -18,6 +18,8 @@ Google Play Link: [Kripton-Guard](https://play.google.com/store/apps/details?id=
 
 ### Python
 
+![](https://media.giphy.com/media/2kP6H6uOH2UXGdykiE/giphy.gif)
+
 ```
 pip install kripton-guard
 ```

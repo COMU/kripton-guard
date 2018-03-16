@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="kripton-guard",
-    version="0.3",
+    version="0.5",
     long_description=readme(),
     classifiers=[
         'Development Status :: 3 - Alpha',
