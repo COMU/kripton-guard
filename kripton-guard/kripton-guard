@@ -62,8 +62,8 @@ def sendNotification():
 
 ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=str(interface))
 
-if(config['SETTINGS']['firstTime']=='1'):
-    config['SETTINGS']['firstTime']='0'
+if(config['SETTINGS']['first-time']=='1'):
+    config['SETTINGS']['first-time']='0'
     with open('/etc/kripton-guard/kripton-guard.conf','w') as configfile:
         config.write(configfile)
     createTables(conn)

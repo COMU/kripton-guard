@@ -17,21 +17,6 @@ notifications via `Google Firebase Cloud
 Messaging <https://firebase.google.com/docs/cloud-messaging/>`__ when
 new device is found.
 
-Prerequisites
--------------
-
-Kripton Guard uses `scapy <https://github.com/secdev/scapy>`__,
-`pyrebase <https://github.com/thisbejim/Pyrebase>`__,
-`pyfcm <https://github.com/olucurious/PyFCM>`__,
-`python-crontab <https://github.com/doctormo/python-crontab>`__ and
-these libraries will be installed automatically when installing
-kripton-guard pip package but you can also install them with the command
-below:
-
-::
-
-    pip install -r requirements.txt
-
 Installation
 ------------
 
