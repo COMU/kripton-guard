@@ -24,9 +24,7 @@ Google Play Link: [Kripton-Guard](https://play.google.com/store/apps/details?id=
 pip install kripton-guard
 ```
 
-Edit `[SETTINGS]` section in [/etc/kripton-guard/kripton-guard.conf](https://github.com/COMU/kripton-guard/blob/master/Python/kripton-guard.conf "kripton-guard.conf").
-
-*&nbsp;&nbsp;&nbsp;&nbsp;Note: `repeattime` gets value in minutes*
+Edit `[SETTINGS]` section in [/etc/kripton-guard/kripton-guard.conf](https://github.com/COMU/kripton-guard/blob/master/kripton-guard/kripton-guard.conf "kripton-guard.conf").
 
 Run the program with:
 
