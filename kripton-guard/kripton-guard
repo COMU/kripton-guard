@@ -18,7 +18,7 @@ subnet=config['SETTINGS']['subnet']
 interface=config['SETTINGS']['interface']
 mail=config['SETTINGS']['mail']
 password=config['SETTINGS']['password']
-repeat-time=config['SETTINGS']['repeat-time']
+repeat_time=config['SETTINGS']['repeat-time']
 
 conn = sqlite3.connect('/var/lib/kripton-guard.db')
 
@@ -55,7 +55,7 @@ def createTables(conn):
 def createCron():
     my_cron = CronTab(user=current_user)
     job = my_cron.new(command='python3 kripton-guard')
-    job.minute.every(repeat-time)
+    job.minute.every(repeat_time)
     my_cron.write()
 
 def showDevices():
