@@ -106,8 +106,10 @@ public class EmailPasswordActivity extends BaseActivity implements
         Log.d(TAG, "writeNewUser:" );
 
         String userId = user.getUid();
+        String userMail = user.getEmail();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("users").child(userId).setValue(deviceID);
+        mDatabase.child("users").child(userId).child("mail").setValue(userMail);
+        mDatabase.child("users").child(userId).child("deviceID").setValue(deviceID);
     }
 
     private void signIn(String email, String password) {

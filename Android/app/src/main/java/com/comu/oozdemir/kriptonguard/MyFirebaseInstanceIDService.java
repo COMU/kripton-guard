@@ -47,8 +47,10 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
         if( user != null ){
             String userId = user.getUid();
+            String userMail = user.getEmail();
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("users").child(userId).setValue(token);
+            mDatabase.child("users").child(userId).child("mail").setValue(userMail);
+            mDatabase.child("users").child(userId).child("deviceID").setValue(token);
         }
     }
 }
