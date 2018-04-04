@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="kripton-guard",
-    version="0.7",
+    version="2.0",
     long_description=readme(),
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -22,7 +22,7 @@ setup(
     license="GPL-3.0",
     url="https://github.com/COMU/kripton-guard",
 
-    install_requires=['scapy','pyrebase','pyfcm','python-crontab','configparser'],
+    install_requires=['scapy','pyrebase','python-crontab','configparser'],
     packages=['kripton-guard'],
     scripts=['kripton-guard/kripton-guard'],
     data_files=[('/etc/kripton-guard', ['kripton-guard/kripton-guard.conf'])],

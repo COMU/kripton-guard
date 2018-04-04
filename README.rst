@@ -22,7 +22,6 @@ Prerequisites
 
 Kripton Guard uses `scapy <https://github.com/secdev/scapy>`__,
 `pyrebase <https://github.com/thisbejim/Pyrebase>`__,
-`pyfcm <https://github.com/olucurious/PyFCM>`__,
 `python-crontab <https://github.com/doctormo/python-crontab>`__ and
 these libraries will be installed automatically when installing
 kripton-guard pip package but you can also install them with the command

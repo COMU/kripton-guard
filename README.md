@@ -7,7 +7,7 @@ Kripton Guard uses [Google Firebase Authentication](https://firebase.google.com/
 
 ## Prerequisites
 
-Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [pyfcm](https://github.com/olucurious/PyFCM), [python-crontab](https://github.com/doctormo/python-crontab) and these libraries will be installed automatically when installing kripton-guard pip package but you can also install them with the command below:
+Kripton Guard uses [scapy](https://github.com/secdev/scapy), [pyrebase](https://github.com/thisbejim/Pyrebase), [python-crontab](https://github.com/doctormo/python-crontab) and these libraries will be installed automatically when installing kripton-guard pip package but you can also install them with the command below:
 ```
 pip install -r requirements.txt
 ```

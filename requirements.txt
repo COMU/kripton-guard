@@ -1,4 +1,3 @@
 scapy
 pyrebase
-pyfcm
 python-crontab
