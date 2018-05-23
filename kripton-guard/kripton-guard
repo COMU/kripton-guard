@@ -89,6 +89,16 @@ def saveMACs():
         query = "INSERT INTO servers (macAddress, ipAddress, name) VALUES ('{0}','{1}','router');".format(getMac(routerIP),routerIP)
         conn.execute(query)
         conn.commit()
+    if(dns_server == "yes"):
+        DNSServerIP = getDNSServer()
+        query = "INSERT INTO servers (macAddress, ipAddress, name) VALUES ('{0}','{1}','DNSServer');".format(getMac(DNSServerIP),DNSServerIP)
+        conn.execute(query)
+        conn.commit()
+    if(dhcp_server == "yes"):
+        DHCPServerIP = getDHCPServer()
+        query = "INSERT INTO servers (macAddress, ipAddress, name) VALUES ('{0}','{1}','router');".format(getMac(DHCPServerIP),DHCPServerIP)
+        conn.execute(query)
+        conn.commit()
 
     for option in config.options("CUSTOMSERVERS"):
         if(option != ""):
@@ -131,10 +141,19 @@ def checkServers(server,ip):
         sendNotification("'{0}'MACChanged".format(server))
 
 def getGateway():
-    import subprocess, shlex
     strs = subprocess.check_output(shlex.split('ip r l'))
     gateway = strs.decode().split('default via')[-1].split()[0]
     return gateway
+
+def getDNSServer():
+    strs = subprocess.check_output(shlex.split('nmcli dev show'))
+    DNSServer = strs.decode().split('DNS[1]:')[-1].split()[0]
+    return DNSServer
+
+def getDHCPServer():
+    strs = subprocess.check_output(shlex.split('dhclient -v'))
+    DHCPServerIP = strs.decode().split('from')[-1].split()[0]
+    return DHCPServerIP
 
 if(config['SETTINGS']['first-time']=='1'):
     config['SETTINGS']['first-time']='0'
@@ -148,6 +167,13 @@ else:
     if(router == "yes"):
         routerIP = getGateway()
         checkServers("router", routerIP)
+    if(dns_server == "yes"):
+        DNSServerIP = getDNSServer()
+        checkServers("DNSServer", DNSServerIP)
+    if(dhcp_server == "yes"):
+        DHCPServerIP = getDHCPServer()
+        checkServers("DHCPServer", DHCPServerIP)
+
     for option in config.options("CUSTOMSERVERS"):
         if(option != ""):
             ip = config["CUSTOMSERVERS"][option]
