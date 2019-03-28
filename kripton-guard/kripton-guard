@@ -2,10 +2,11 @@
 
 from scapy.all import *
 from crontab import CronTab
-import shutil, os, sys, getpass
+import shutil, sys, getpass
 import configparser
 import sqlite3
 import pyrebase
+import os.path
 
 # Check user
 if os.getegid() != 0:
@@ -21,8 +22,14 @@ mail=config['SETTINGS']['mail']
 password=config['SETTINGS']['password']
 repeat_time=config['SETTINGS']['repeat-time']
 
+# Where is database
+database_path= '/var/lib/kripton-guard.db'
+
+# Is database exists
+is_exists = os.path.isfile(database_path)
+
 # Create or use DB
-conn = sqlite3.connect('/var/lib/kripton-guard.db')
+conn = sqlite3.connect(database_path)
 
 # Get API Keys
 apiKey=config['API']['apiKey']
@@ -74,23 +81,7 @@ def sendNotification():
 # Run Scapy ARP request
 ans,unans=srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=subnet), timeout=5, iface=str(interface))
 
-if(config['SETTINGS']['first-time']=='1'):
-    # If the program is running for the first time, just save MACs and IPs to local DB
-    config['SETTINGS']['first-time']='0'
-
-    createCron()
-
-    with open('/etc/kripton-guard/kripton-guard.conf','w') as configfile:
-        config.write(configfile)
-    createTables(conn)
-    for s,r in ans:
-        mac=(r.sprintf("%Ether.src%"))
-        ip=(r.sprintf("%ARP.psrc%"))
-        query= "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
-        conn.execute(query)
-    conn.commit()
-    showDevices()
-else:
+if(is_exists):
     showDevices()
     for s,r in ans:
         mac=(r.sprintf("%Ether.src%"))
@@ -111,5 +102,15 @@ else:
             query = "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
             conn.execute(query)
             conn.commit()
+else:
+    createCron()
+    createTables(conn)
+    for s, r in ans:
+        mac = (r.sprintf("%Ether.src%"))
+        ip = (r.sprintf("%ARP.psrc%"))
+        query = "INSERT INTO mac_ip_addresses (macAddress, ipAddress) VALUES ('{0}','{1}');".format(mac, ip)
+        conn.execute(query)
+    conn.commit()
+    showDevices()
 
 conn.close()
